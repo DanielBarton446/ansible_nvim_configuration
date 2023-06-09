@@ -1,0 +1,32 @@
+- hosts: localhost
+  become: true
+  tasks:
+
+  - name: Install neovim
+    ansible.builtin.package:
+      name: neovim
+      state: present
+    tags:
+    - nvim
+
+  - name: Install Packer(nvim package manager)
+    ansible.builtin.git:
+      repo: https://github.com/wbthomason/packer.nvim
+      depth: 1
+      dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    tags:
+    - nvim
+
+  - name: Clone nvim config
+    ansible.builtin.git:
+      repo: https://github.com/DanielBarton446/nvim.git
+      dest: ~/.config/nvim
+    tags:
+    - nvim
+
+  - name: Install Node
+    ansible.builtin.package:
+      name: ['nodejs', 'npm']
+      state: present
+    tags:
+    - node
