@@ -24,6 +24,11 @@
     tags:
     - nvim
 
+  - name: install nvim config
+    shell: nvim --headless +PackerInstall +"sleep 1" +qall
+    tags:
+    - nvim
+
   - name: Install Node
     ansible.builtin.package:
       name: ['nodejs', 'npm']
