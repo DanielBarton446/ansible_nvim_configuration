@@ -25,7 +25,7 @@
     - nvim
 
   - name: install nvim config
-    shell: nvim --headless +PackerInstall +"sleep 1" +qall
+    shell: nvim --headless +PackerInstall +"sleep 5" +qall
     tags:
     - nvim
 
